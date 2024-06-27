@@ -16,6 +16,8 @@ const fork = "f"
 const spoon = "s"
 const knife = "k"
 
+let addingObjectTurn = false
+
 setLegend(
   [player, bitmap`
 ................
@@ -149,11 +151,21 @@ onInput("l", () => {
   playerX = getFirst(player).x
   tiles = getTile(playerX, 1)
 
-  if (tiles.length > 0) {
-      clearTile(playerX, 1)
+  if (addingObjectTurn) {
+    if (tiles.length == 0) {
+      addSprite(playerX, 1, fork)
+      addingObjectTurn = !addingObjectTurn
     } else {
       console.log('nothing')
     }
+  } else {
+    if (tiles.length > 0) {
+      clearTile(playerX, 1)
+      addingObjectTurn = !addingObjectTurn
+    } else {
+      console.log('nothing')
+    }
+  }
 })
 
 afterInput(() => {
