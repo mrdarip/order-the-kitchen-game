@@ -145,6 +145,9 @@ let addingObjectTurn = false
 let puttingItem = items[getRandomInt(items.length)]
 let itemToReturn = getItemFromScreen()
 
+let points = 0
+displayPoints()
+
 onInput("a", () => {
   getFirst(player).x -= 1
 })
@@ -160,18 +163,24 @@ onInput("l", () => {
 
   if (addingObjectTurn) {
     if (tiles.length == 0) {
+      points++;
+      displayPoints()
+
       addSprite(playerX, 1, puttingItem)
 
       puttingItem = items[getRandomInt(items.length)]
       addingObjectTurn = !addingObjectTurn
 
       itemToReturn = getItemFromScreen()
-      
+
     } else {
       console.log('nothing')
     }
   } else {
     if (tiles.length > 0 && itemToReturn == getTile(playerX, 1)[0].type) {
+      points++;
+      displayPoints()
+
       clearTile(playerX, 1)
       addingObjectTurn = !addingObjectTurn
     } else {
@@ -199,4 +208,12 @@ function getItemFromScreen() {
   } while (sum < randomCount)
 
   return items[returnIndex]
+}
+
+function displayPoints() {
+  addText("points: " + points, {
+    x: 1,
+    y: 13,
+    color: color`0`
+  })
 }
