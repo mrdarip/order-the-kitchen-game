@@ -159,10 +159,10 @@ onInput("d", () => {
 
 onInput("l", () => {
   playerX = getFirst(player).x
-  tiles = getTile(playerX, 1)
-
+  itemOverPlayer = getTile(playerX, 1)[0]
+  console.log(typeof itemOverPlayer == "undefined")
   if (addingObjectTurn) {
-    if (tiles.length == 0) {
+    if (typeof itemOverPlayer == "undefined") {
       points++;
       displayPoints()
 
@@ -178,11 +178,11 @@ onInput("l", () => {
       console.log('nothing')
     }
   } else {
-    if (tiles.length > 0 && itemToReturn == tiles[0].type) {
+    if (typeof itemOverPlayer != "undefined" && itemToReturn == itemOverPlayer.type) {
       points++;
       displayPoints()
 
-      storeItem(tiles[0].type, -1)
+      storeItem(itemOverPlayer.type, -1)
       clearTile(playerX, 1)
 
 
