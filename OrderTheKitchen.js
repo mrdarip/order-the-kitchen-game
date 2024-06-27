@@ -16,7 +16,10 @@ const fork = "f"
 const spoon = "s"
 const knife = "k"
 
+let items = [plate, fork, spoon, knife]
 let addingObjectTurn = false
+let puttingItem = items[getRandomInt(items.length)]
+
 
 setLegend(
   [player, bitmap`
@@ -153,7 +156,9 @@ onInput("l", () => {
 
   if (addingObjectTurn) {
     if (tiles.length == 0) {
-      addSprite(playerX, 1, fork)
+      addSprite(playerX, 1, puttingItem)
+
+      puttingItem = items[getRandomInt(items.length)]
       addingObjectTurn = !addingObjectTurn
     } else {
       console.log('nothing')
@@ -171,3 +176,7 @@ onInput("l", () => {
 afterInput(() => {
 
 })
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
