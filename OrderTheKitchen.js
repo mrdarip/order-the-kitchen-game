@@ -130,7 +130,7 @@ const levels = [
 pp.ffkk.ss
 i.........
 ..........
-..........
+..e.....e.
 ..........
 ..........
 ..........`
@@ -143,10 +143,21 @@ let stored = [2, 2, 2, 2]
 let itemsOnScreen = stored.reduce((a, b) => a + b, 0)
 let addingObjectTurn = false
 let puttingItem = items[getRandomInt(items.length)]
-let itemToReturn = getItemFromScreen()
+let itemToReturn = getItemToGive()
 
 let points = 0
 displayPoints()
+
+addText("put", {
+  x: 1,
+  y: 9,
+  color: color`0`
+})
+addText("give", {
+  x: 12,
+  y: 9,
+  color: color`0`
+})
 
 onInput("a", () => {
   getFirst(player).x -= 1
@@ -160,39 +171,31 @@ onInput("d", () => {
 onInput("l", () => {
   playerX = getFirst(player).x
   itemOverPlayer = getTile(playerX, 1)[0]
-  console.log(typeof itemOverPlayer == "undefined")
+
   if (addingObjectTurn) {
     if (typeof itemOverPlayer == "undefined") {
-      points++;
-      displayPoints()
+      passTurn()
 
       addSprite(playerX, 1, puttingItem)
       storeItem(puttingItem, 1)
 
       puttingItem = items[getRandomInt(items.length)]
-      addingObjectTurn = !addingObjectTurn
 
-      itemToReturn = getItemFromScreen()
+      updateItemToPut(empty)
+      itemToReturn = getItemToGive()
 
-    } else {
-      console.log('nothing')
     }
   } else {
     if (typeof itemOverPlayer != "undefined" && itemToReturn == itemOverPlayer.type) {
-      points++;
-      displayPoints()
+      passTurn()
 
       storeItem(itemOverPlayer.type, -1)
-      clearTile(playerX, 1)
+      itemOverPlayer.remove()
 
-
-      addingObjectTurn = !addingObjectTurn
-    } else {
-      console.log('nothing')
+      updateItemToPut(puttingItem)
+      updateItemToGive(empty)
     }
-    console.log(itemToReturn)
   }
-  console.log(stored)
 })
 
 afterInput(() => {
@@ -201,6 +204,13 @@ afterInput(() => {
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
+}
+
+function getItemToGive() {
+  item = getItemFromScreen()
+  updateItemToGive(item)
+
+  return item
 }
 
 function getItemFromScreen() {
@@ -225,4 +235,24 @@ function displayPoints() {
     y: 13,
     color: color`0`
   })
+}
+
+function passTurn() {
+  addingObjectTurn = !addingObjectTurn
+  points++;
+  displayPoints()
+}
+
+function updateItemToPut(newItem) {
+  updateItemAt(2, 4, newItem)
+}
+
+function updateItemToGive(newItem) {
+  updateItemAt(8, 4, newItem)
+}
+
+
+function updateItemAt(x, y, newItem) {
+  clearTile(x, y)
+  addSprite(x, y, newItem)
 }
