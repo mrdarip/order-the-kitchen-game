@@ -220,7 +220,7 @@ function getItemFromScreen() {
   do {
     returnIndex++
     sum += stored[returnIndex]
-  } while (sum < randomCount)
+  } while (sum <= randomCount)
 
   return items[returnIndex]
 }
