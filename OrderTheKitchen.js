@@ -281,14 +281,15 @@ i.........
 ..e.....e.
 ..........
 ..........
-..........`, map`
+..........`,
+  map`
 ..........
-pp.ffkk.ss
-i.i.......
-..........
-..ei....e.
+.k.k..k.k.
 ..........
 ..........
+..........
+..........
+.f.f..f.f.
 ..........`
 ]
 
@@ -461,8 +462,15 @@ function checkScreenIsValid() {
       if ((!registered.includes(item.type)) || registered[registered.length - 1] == item.type) {
         registered.push(item.type)
       } else {
+        clearText()
         level = 1
         setMap(levels[level])
+
+        addText("game\nover", {
+          x: 8,
+          y: 7,
+          color: color`0`
+        })
       }
     }
   }
