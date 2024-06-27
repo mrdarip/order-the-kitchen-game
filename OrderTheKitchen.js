@@ -146,6 +146,14 @@ onInput("d", () => {
 
 
 onInput("l", () => {
+  playerX = getFirst(player).x
+  tiles = getTile(playerX, 1)
+
+  if (tiles.length > 0) {
+      clearTile(playerX, 1)
+    } else {
+      console.log('nothing')
+    }
 })
 
 afterInput(() => {
