@@ -16,11 +16,6 @@ const fork = "f"
 const spoon = "s"
 const knife = "k"
 
-let items = [plate, fork, spoon, knife]
-let addingObjectTurn = false
-let puttingItem = items[getRandomInt(items.length)]
-
-
 setLegend(
   [player, bitmap`
 ................
@@ -141,6 +136,13 @@ i.........
 
 setMap(levels[level])
 
+let items = [plate, fork, spoon, knife]
+let stored = [2, 2, 2, 2]
+let itemsOnScreen = stored.reduce((a, b) => a + b, 0)
+let addingObjectTurn = false
+let puttingItem = items[getRandomInt(items.length)]
+let itemToReturn = getItemFromScreen()
+
 onInput("a", () => {
   getFirst(player).x -= 1
 })
@@ -164,7 +166,7 @@ onInput("l", () => {
       console.log('nothing')
     }
   } else {
-    if (tiles.length > 0) {
+    if (tiles.length > 0 && itemToReturn == getTile(playerX, 1)[0].type) {
       clearTile(playerX, 1)
       addingObjectTurn = !addingObjectTurn
     } else {
@@ -179,4 +181,16 @@ afterInput(() => {
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
+}
+
+function getItemFromScreen() {
+  randomCount = getRandomInt(itemsOnScreen)
+  returnIndex = -1
+  sum = 0
+  do {
+    returnIndex++
+    sum += stored[returnIndex]
+  } while (sum < randomCount)
+
+  return items[returnIndex]
 }
