@@ -167,6 +167,7 @@ onInput("l", () => {
       displayPoints()
 
       addSprite(playerX, 1, puttingItem)
+      storeItem(puttingItem, 1)
 
       puttingItem = items[getRandomInt(items.length)]
       addingObjectTurn = !addingObjectTurn
@@ -177,17 +178,21 @@ onInput("l", () => {
       console.log('nothing')
     }
   } else {
-    if (tiles.length > 0 && itemToReturn == getTile(playerX, 1)[0].type) {
+    if (tiles.length > 0 && itemToReturn == tiles[0].type) {
       points++;
       displayPoints()
 
+      storeItem(tiles[0].type, -1)
       clearTile(playerX, 1)
+
+
       addingObjectTurn = !addingObjectTurn
     } else {
       console.log('nothing')
     }
     console.log(itemToReturn)
   }
+  console.log(stored)
 })
 
 afterInput(() => {
@@ -208,6 +213,10 @@ function getItemFromScreen() {
   } while (sum < randomCount)
 
   return items[returnIndex]
+}
+
+function storeItem(item, quantity) {
+  stored[items.indexOf(item)] += quantity
 }
 
 function displayPoints() {
