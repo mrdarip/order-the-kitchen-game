@@ -16,6 +16,8 @@ const fork = "f"
 const spoon = "s"
 const knife = "k"
 
+
+
 setLegend(
   [player, bitmap`
 ................
@@ -162,6 +164,9 @@ onInput("l", () => {
 
       puttingItem = items[getRandomInt(items.length)]
       addingObjectTurn = !addingObjectTurn
+
+      itemToReturn = getItemFromScreen()
+      
     } else {
       console.log('nothing')
     }
@@ -172,6 +177,7 @@ onInput("l", () => {
     } else {
       console.log('nothing')
     }
+    console.log(itemToReturn)
   }
 })
 
