@@ -281,6 +281,14 @@ i.........
 ..e.....e.
 ..........
 ..........
+..........`, map`
+..........
+pp.ffkk.ss
+i.i.......
+..........
+..ei....e.
+..........
+..........
 ..........`
 ]
 
@@ -367,6 +375,7 @@ onInput("l", () => {
       updateItemToPut(empty)
       itemToReturn = getItemToGive()
 
+      checkScreenIsValid()
     }
   } else {
     if (typeof itemOverPlayer != "undefined" && itemToReturn == itemOverPlayer.type) {
@@ -439,8 +448,22 @@ function updateItemToGive(newItem) {
   updateItemAt(8, 4, newItem)
 }
 
-
 function updateItemAt(x, y, newItem) {
   clearTile(x, y)
   addSprite(x, y, newItem)
+}
+
+function checkScreenIsValid() {
+  let registered = []
+  for (let i = 0; i < width(); i++) {
+    let item = getTile(i, 1)[0]
+    if (typeof item != "undefined") {
+      if ((!registered.includes(item.type)) || registered[registered.length - 1] == item.type) {
+        registered.push(item.type)
+      } else {
+        level = 1
+        setMap(levels[level])
+      }
+    }
+  }
 }
