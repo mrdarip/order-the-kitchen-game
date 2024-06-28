@@ -578,7 +578,11 @@ let stored;
 let addingObjectTurn;
 let puttingItem;
 let itemToReturn;
+
+let points;
+let highscore = 0;
 resetGame()
+
 
 onInput("a", () => {
   getFirst(player).x -= 1;
@@ -638,6 +642,7 @@ function resetGame() {
 
   points = 0;
   displayPoints();
+  displayHighScore();
 
   addText("put", {
     x: 1,
@@ -687,7 +692,20 @@ function storeItem(item, quantity) {
 function displayPoints() {
   addText("points: " + points, {
     x: 1,
-    y: 13,
+    y: 12,
+    color: color`0`,
+  });
+
+  if(points>highscore){
+    highscore=points
+    displayHighScore()
+  }
+}
+
+function displayHighScore() {
+  addText("highscore: " + highscore, {
+    x: 1,
+    y: 14,
     color: color`0`,
   });
 }
