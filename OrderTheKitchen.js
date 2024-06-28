@@ -638,7 +638,7 @@ var bgLoop = setInterval(() => {
 }, 100);
 
 function resetGame() {
-  goToScene(0, mainTune,[bg0, bg1, bg2, bg3, bg4, bg5, bg6, bg7]);
+  goToScene(0, mainTune, [bg0, bg1, bg2, bg3, bg4, bg5, bg6, bg7]);
 
   points = 0;
   displayPoints();
@@ -689,23 +689,23 @@ function storeItem(item, quantity) {
   stored[items.indexOf(item)] += quantity;
 }
 
-function displayPoints() {
+function displayPoints(x = 1, y = 12) {
   addText("points: " + points, {
-    x: 1,
-    y: 12,
+    x: x,
+    y: y,
     color: color`0`,
   });
 
-  if(points>highscore){
-    highscore=points
+  if (points > highscore) {
+    highscore = points
     displayHighScore()
   }
 }
 
-function displayHighScore() {
+function displayHighScore(x = 1, y = 14) {
   addText("highscore: " + highscore, {
-    x: 1,
-    y: 14,
+    x: x,
+    y: y,
     color: color`0`,
   });
 }
@@ -740,12 +740,16 @@ function checkScreenIsValid() {
       ) {
         registered.push(item.type);
       } else {
-        goToScene(1, gameOverTune,[bg8, bg9, bga, bgb, bgc, bgd, bge, bgf]);
+        goToScene(1, gameOverTune, [bg8, bg9, bga, bgb, bgc, bgd, bge, bgf]);
         addText("game\nover", {
           x: 8,
           y: 7,
           color: color`0`,
         });
+
+        displayHighScore(2, 15)
+        displayPoints(2, 14)
+
       }
     }
   }
@@ -754,11 +758,11 @@ function checkScreenIsValid() {
 function goToScene(scene, bgTune, bgTiles) {
   playback.end();
   playback = playTune(bgTune, Infinity);
-  
+
   clearText();
-  
+
   bg = bgTiles;
-  
+
   level = scene;
   setMap(levels[level]);
 }
