@@ -736,8 +736,11 @@ function checkScreenIsValid() {
 function goToScene(scene, bgTune, bgTiles) {
   playback.end();
   playback = playTune(bgTune, Infinity);
+  
   clearText();
+  
+  bg = bgTiles;
+  
   level = scene;
   setMap(levels[level]);
-  bg = bgTiles;
 }
