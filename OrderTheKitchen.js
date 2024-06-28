@@ -8,30 +8,31 @@ https://sprig.hackclub.com/gallery/getting_started
 @addedOn: 2024-00-00
 */
 
-const player = "i"
+const player = "i";
 
-const empty = "e"
+const empty = "e";
 
-const plate = "p"
-const fork = "f"
-const mug = "m"
-const knife = "k"
+const plate = "p";
+const fork = "f";
+const mug = "m";
+const knife = "k";
 
-const bg0 = "0"
-const bg1 = "1"
-const bg2 = "2"
-const bg3 = "3"
-const bg4 = "4"
-const bg5 = "5"
-const bg6 = "6"
-const bg7 = "7"
+const bg0 = "0";
+const bg1 = "1";
+const bg2 = "2";
+const bg3 = "3";
+const bg4 = "4";
+const bg5 = "5";
+const bg6 = "6";
+const bg7 = "7";
 
-let bgIndex = 0
-let bg = [bg0, bg1, bg2, bg3, bg4, bg5, bg6, bg7]
-
+let bgIndex = 0;
+let bg = [bg0, bg1, bg2, bg3, bg4, bg5, bg6, bg7];
 
 setLegend(
-  [player, bitmap`
+  [
+    player,
+    bitmap`
 ................
 .......00.......
 .......00.......
@@ -47,8 +48,11 @@ setLegend(
 .......00.......
 .......00.......
 .......00.......
-................`],
-  [plate, bitmap`
+................`,
+  ],
+  [
+    plate,
+    bitmap`
 ....22222222....
 ...2222222222...
 ..222111111222..
@@ -64,8 +68,11 @@ setLegend(
 .22112222221122.
 ..222111111222..
 ...2222222222...
-....22222222....`],
-  [fork, bitmap`
+....22222222....`,
+  ],
+  [
+    fork,
+    bitmap`
 ...LL..LL..LL...
 ...LL..LL..LL...
 ...LL..LL..LL...
@@ -81,8 +88,11 @@ setLegend(
 .......LL.......
 .......LL.......
 .......LL.......
-.......LL.......`],
-  [mug, bitmap`
+.......LL.......`,
+  ],
+  [
+    mug,
+    bitmap`
 ................
 ................
 .55555555555....
@@ -98,8 +108,11 @@ setLegend(
 .55555555555....
 .55555555555....
 ................
-................`],
-  [knife, bitmap`
+................`,
+  ],
+  [
+    knife,
+    bitmap`
 ......1.........
 ......11........
 ......111.......
@@ -115,8 +128,11 @@ setLegend(
 ......00........
 ......00........
 ......00........
-......00........`],
-  [empty, bitmap`
+......00........`,
+  ],
+  [
+    empty,
+    bitmap`
 11.111.11.111.11
 1..............1
 ................
@@ -132,8 +148,11 @@ setLegend(
 1..............1
 ................
 1..............1
-11.111.11.111.11`],
-  [bg0, bitmap`
+11.111.11.111.11`,
+  ],
+  [
+    bg0,
+    bitmap`
 2222222277777777
 2222222277777777
 2222222277777777
@@ -149,8 +168,11 @@ setLegend(
 7777777722222222
 7777777722222222
 7777777722222222
-7777777722222222`],
-  [bg1, bitmap`
+7777777722222222`,
+  ],
+  [
+    bg1,
+    bitmap`
 2777777772222222
 7222222227777777
 7222222227777777
@@ -166,8 +188,11 @@ setLegend(
 2777777772222222
 2777777772222222
 2777777772222222
-2777777772222222`],
-  [bg2, bitmap`
+2777777772222222`,
+  ],
+  [
+    bg2,
+    bitmap`
 2277777777222222
 2277777777222222
 7722222222777777
@@ -183,8 +208,11 @@ setLegend(
 2277777777222222
 2277777777222222
 2277777777222222
-2277777777222222`],
-  [bg3, bitmap`
+2277777777222222`,
+  ],
+  [
+    bg3,
+    bitmap`
 2227777777722222
 2227777777722222
 2227777777722222
@@ -200,8 +228,11 @@ setLegend(
 2227777777722222
 2227777777722222
 2227777777722222
-2227777777722222`],
-  [bg4, bitmap`
+2227777777722222`,
+  ],
+  [
+    bg4,
+    bitmap`
 2222777777772222
 2222777777772222
 2222777777772222
@@ -217,8 +248,11 @@ setLegend(
 2222777777772222
 2222777777772222
 2222777777772222
-2222777777772222`],
-  [bg5, bitmap`
+2222777777772222`,
+  ],
+  [
+    bg5,
+    bitmap`
 2222277777777222
 2222277777777222
 2222277777777222
@@ -234,8 +268,11 @@ setLegend(
 7777722222222777
 2222277777777222
 2222277777777222
-2222277777777222`],
-  [bg6, bitmap`
+2222277777777222`,
+  ],
+  [
+    bg6,
+    bitmap`
 2222227777777722
 2222227777777722
 2222227777777722
@@ -251,8 +288,11 @@ setLegend(
 7777772222222277
 7777772222222277
 2222227777777722
-2222227777777722`],
-  [bg7, bitmap`
+2222227777777722`,
+  ],
+  [
+    bg7,
+    bitmap`
 2222222777777772
 2222222777777772
 2222222777777772
@@ -268,11 +308,11 @@ setLegend(
 7777777222222227
 7777777222222227
 7777777222222227
-2222222777777772`],
+2222222777777772`,
+  ]
+);
 
-)
-
-let level = 0
+let level = 0;
 const levels = [
   map`
 ..........
@@ -291,10 +331,8 @@ i.........
 ..........
 ..........
 .f.f..f.f.
-..........`
-]
-
-setMap(levels[level])
+..........`,
+];
 
 const mainTune = tune`
 225.5639097744361: E4^225.5639097744361 + G5/225.5639097744361 + D4~225.5639097744361,
@@ -328,7 +366,7 @@ const mainTune = tune`
 225.5639097744361: C4~225.5639097744361 + F5/225.5639097744361,
 225.5639097744361: E4/225.5639097744361,
 225.5639097744361: D5/225.5639097744361,
-225.5639097744361: G4/225.5639097744361`
+225.5639097744361: G4/225.5639097744361`;
 const gameOverTune = tune`
 500: E4~500 + G5^500 + D4/500,
 500: F4~500,
@@ -361,110 +399,92 @@ const gameOverTune = tune`
 500: C4/500 + F5^500,
 500: E4^500,
 500: D5^500,
-500: G4^500`
+500: G4^500`;
 
-let playback = playTune(mainTune, Infinity)
+let playback = playTune(mainTune, Infinity);
 
-let items = [plate, fork, mug, knife]
-let stored = [2, 2, 2, 2]
-let itemsOnScreen = stored.reduce((a, b) => a + b, 0)
-let addingObjectTurn = false
-let puttingItem = items[getRandomInt(items.length)]
-let itemToReturn = getItemToGive()
+let items = [plate, fork, mug, knife];
+let stored;
 
-let points = 0
-displayPoints()
-
-addText("put", {
-  x: 1,
-  y: 9,
-  color: color`0`
-})
-addText("give", {
-  x: 12,
-  y: 9,
-  color: color`0`
-})
+let addingObjectTurn;
+let puttingItem;
+let itemToReturn;
+resetGame()
 
 onInput("a", () => {
-  getFirst(player).x -= 1
-})
+  getFirst(player).x -= 1;
+});
 
 onInput("d", () => {
-  getFirst(player).x += 1
-})
-
+  getFirst(player).x += 1;
+});
 
 onInput("l", () => {
-  playerX = getFirst(player).x
-  itemOverPlayer = getTile(playerX, 1)[0]
+  playerX = getFirst(player).x;
+  itemOverPlayer = getTile(playerX, 1)[0];
 
   if (addingObjectTurn) {
     if (typeof itemOverPlayer == "undefined") {
-      passTurn()
+      passTurn();
 
-      addSprite(playerX, 1, puttingItem)
-      storeItem(puttingItem, 1)
+      addSprite(playerX, 1, puttingItem);
+      storeItem(puttingItem, 1);
 
-      puttingItem = items[getRandomInt(items.length)]
+      puttingItem = items[getRandomInt(items.length)];
 
-      updateItemToPut(empty)
-      itemToReturn = getItemToGive()
+      updateItemToPut(empty);
+      itemToReturn = getItemToGive();
 
-      checkScreenIsValid()
+      checkScreenIsValid();
     }
   } else {
-    if (typeof itemOverPlayer != "undefined" && itemToReturn == itemOverPlayer.type) {
-      passTurn()
+    if (
+      typeof itemOverPlayer != "undefined" &&
+      itemToReturn == itemOverPlayer.type
+    ) {
+      passTurn();
 
-      storeItem(itemOverPlayer.type, -1)
-      itemOverPlayer.remove()
+      storeItem(itemOverPlayer.type, -1);
+      itemOverPlayer.remove();
 
-      updateItemToPut(puttingItem)
-      updateItemToGive(empty)
+      updateItemToPut(puttingItem);
+      updateItemToGive(empty);
     }
   }
-})
+});
 
 onInput("k", () => {
-  resetGame()
-})
+  resetGame();
+});
 
-afterInput(() => {
-
-})
+afterInput(() => {});
 
 var bgLoop = setInterval(() => {
-  bgIndex++
-  setBackground(bg[bgIndex % bg.length])
+  bgIndex++;
+  setBackground(bg[bgIndex % bg.length]);
 }, 100);
 
 function resetGame() {
-  playback.end()
-  playback = playTune(mainTune, Infinity)
-  clearText()
-  level = 0
-  setMap(levels[level])
-  points = 0
-  displayPoints()
+  goToScene(0, mainTune);
+
+  points = 0;
+  displayPoints();
 
   addText("put", {
     x: 1,
     y: 9,
-    color: color`0`
-  })
+    color: color`0`,
+  });
   addText("give", {
     x: 12,
     y: 9,
-    color: color`0`
-  })
+    color: color`0`,
+  });
 
-
-  stored = [2, 2, 2, 2]
-  itemsOnScreen = stored.reduce((a, b) => a + b, 0)
-  addingObjectTurn = false
-  puttingItem = items[getRandomInt(items.length)]
-  itemToReturn = getItemToGive()
+  stored = [2, 2, 2, 2];
+  addingObjectTurn = false;
+  puttingItem = items[getRandomInt(items.length)];
+  itemToReturn = getItemToGive();
 }
 
 function getRandomInt(max) {
@@ -472,75 +492,82 @@ function getRandomInt(max) {
 }
 
 function getItemToGive() {
-  item = getItemFromScreen()
-  updateItemToGive(item)
+  item = getItemFromScreen();
+  updateItemToGive(item);
 
-  return item
+  return item;
 }
 
 function getItemFromScreen() {
-  randomCount = getRandomInt(itemsOnScreen)
-  returnIndex = -1
-  sum = 0
+  let itemsOnScreen = stored.reduce((a, b) => a + b, 0);
+  randomCount = getRandomInt(itemsOnScreen);
+  returnIndex = -1;
+  sum = 0;
   do {
-    returnIndex++
-    sum += stored[returnIndex]
-  } while (sum <= randomCount)
+    returnIndex++;
+    sum += stored[returnIndex];
+  } while (sum <= randomCount);
 
-  return items[returnIndex]
+  return items[returnIndex];
 }
 
 function storeItem(item, quantity) {
-  stored[items.indexOf(item)] += quantity
+  stored[items.indexOf(item)] += quantity;
 }
 
 function displayPoints() {
   addText("points: " + points, {
     x: 1,
     y: 13,
-    color: color`0`
-  })
+    color: color`0`,
+  });
 }
 
 function passTurn() {
-  addingObjectTurn = !addingObjectTurn
+  addingObjectTurn = !addingObjectTurn;
   points++;
-  displayPoints()
+  displayPoints();
 }
 
 function updateItemToPut(newItem) {
-  updateItemAt(2, 4, newItem)
+  updateItemAt(2, 4, newItem);
 }
 
 function updateItemToGive(newItem) {
-  updateItemAt(8, 4, newItem)
+  updateItemAt(8, 4, newItem);
 }
 
 function updateItemAt(x, y, newItem) {
-  clearTile(x, y)
-  addSprite(x, y, newItem)
+  clearTile(x, y);
+  addSprite(x, y, newItem);
 }
 
 function checkScreenIsValid() {
-  let registered = []
+  let registered = [];
   for (let i = 0; i < width(); i++) {
-    let item = getTile(i, 1)[0]
+    let item = getTile(i, 1)[0];
     if (typeof item != "undefined") {
-      if ((!registered.includes(item.type)) || registered[registered.length - 1] == item.type) {
-        registered.push(item.type)
+      if (
+        !registered.includes(item.type) ||
+        registered[registered.length - 1] == item.type
+      ) {
+        registered.push(item.type);
       } else {
-        playback.end()
-        playback = playTune(gameOverTune, Infinity)
-        clearText()
-        level = 1
-        setMap(levels[level])
-
+        goToScene(1, gameOverTune);
         addText("game\nover", {
           x: 8,
           y: 7,
-          color: color`0`
-        })
+          color: color`0`,
+        });
       }
     }
   }
+}
+
+function goToScene(scene, bgTune) {
+  playback.end();
+  playback = playTune(bgTune, Infinity);
+  clearText();
+  level = scene;
+  setMap(levels[level]);
 }
