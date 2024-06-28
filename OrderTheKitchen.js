@@ -1,11 +1,17 @@
 /*
-First time? Check out the tutorial game:
-https://sprig.hackclub.com/gallery/getting_started
+👨‍🍳 DESCRIPTION:
+You are running a restaurant, so you must keep it ordered, as you recive dishes,
+you must put them beside others of their kind, let's see how long you last!
 
-@title: order the kitchen!
+🎮 CONTROLS:
+a/d: move
+l: interact
+k: reset
+
+@title: Order the kitchen!
 @author: mrdarip
-@tags: [casual,infinite]
-@addedOn: 2024-00-00
+@tags: ['casual','infinite', 'endless']
+@addedOn: 2024-06-29
 */
 
 const player = "i";
