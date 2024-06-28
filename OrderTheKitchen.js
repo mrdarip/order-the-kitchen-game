@@ -634,9 +634,7 @@ var bgLoop = setInterval(() => {
 }, 100);
 
 function resetGame() {
-  goToScene(0, mainTune);
-
-  bg = [bg0, bg1, bg2, bg3, bg4, bg5, bg6, bg7]
+  goToScene(0, mainTune,[bg0, bg1, bg2, bg3, bg4, bg5, bg6, bg7]);
 
   points = 0;
   displayPoints();
