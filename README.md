@@ -17,5 +17,5 @@ While doing the dishes, I noticed that we arrange the plates by size on the dish
   - [Pixel Studio](https://play.google.com/store/apps/details?id=com.PixelStudio) - Employed for creating the thumbnail.
   - [Spck](https://play.google.com/store/apps/details?id=io.spck) - Used for committing changes from a mobile device.
 
-### Arcade Specific, I Guess
+# Arcade Specific, I Guess
 [Here](https://github.com/mrdarip/sprig) is my sprig fork, and [My pull request](https://github.com/hackclub/sprig/pull/1872), listed as they don't belong to this repo
