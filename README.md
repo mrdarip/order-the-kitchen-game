@@ -9,9 +9,10 @@ While doing the dishes, I noticed that we arrange the plates by size on the dish
 
 ## Made using:
 
-- **Programs:**  
-List them here
 - **Pages:**  
-List them here
+  - [Sprig Editor](https://sprig.hackclub.com/editor) - Utilized for editing.
+- **Programs:**  
+  - [VSCode](https://code.visualstudio.com/) - Used for uploading commits for [Arcade](https://hackclub.com/arcade/).
 - **Mobile Apps:**  
-List them here
+  - [Pixel Studio](https://play.google.com/store/apps/details?id=com.PixelStudio) - Employed for creating the thumbnail.
+  - [Spck](https://play.google.com/store/apps/details?id=io.spck) - Used for committing changes from a mobile device.
