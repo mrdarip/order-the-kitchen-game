@@ -1,6 +1,6 @@
 # Order the kitchen game
 
-Created with [Sprig 🌱](https://sprig.hackclub.com/) and love 😍.
+Created with [Sprig 🌱](https://sprig.hackclub.com/) and love 😍.  
 ![Thumbnail](https://github.com/mrdarip/order-the-kitchen-game/blob/main/thumbnail.png?raw=true)
 
 ## Why it was made
