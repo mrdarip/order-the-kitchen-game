@@ -5,7 +5,7 @@ Made with [sprig 🌱](https://sprig.hackclub.com/) and love 😍
 
 # Why was it made
 
-Story of it
+While doing the dishes, I noticed that we arrange the plates by size on the dish dryer and in the dishwasher. This observation inspired me to create a game based on this concept. So, here it is.
 
 ## Made using:
 
